@@ -1,0 +1,173 @@
+@font-face {
+    font-family: 'space mono';
+    src: url(../fonts/SpaceMono-Bold.ttf);
+}
+
+$body-font: 'space mono';
+$input-color: hsl(180, 27%, 91%);
+$dark-cyan: hsl(183, 100%, 15%);
+
+$Strongcyan: hsl(172, 67%, 45%);
+$Darkgrayishcyan: hsl(186, 14%, 43%);
+$Grayishcyan: hsl(184, 14%, 56%);
+$Lightgrayishcyan: hsl(185, 41%, 84%);
+$Verylightgrayishcyan: hsl(189, 41%, 97%);
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: $body-font;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background: hsl(185, 41%, 84%);
+}
+
+.wrapper {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    height: 300px;
+    width: 650px;
+}
+
+//bill section
+
+.bill {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 1rem;
+
+    p {
+        font-size: 0.7rem;
+    }
+}
+
+@mixin input {
+    background-color: $input-color;
+    border: transparent solid 2px;
+    color: $dark-cyan;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: right;
+    border-radius: 5px;
+    width: 100%;
+
+    &:hover {
+        border: hsl(152, 35%, 53%) solid 2px;
+    }
+}
+
+
+.bill__value {
+    p {
+        margin-bottom: 0.3rem;
+    }
+
+    input {
+        @include input();
+    }
+}
+
+.bill__tip {
+
+    p {
+        margin-bottom: 0.3rem;
+    }
+
+    input {
+        width: 100%;
+        @include input();
+        font-size: 0.9rem;
+        text-align: center;
+    }
+}
+
+
+.tips {
+    display: grid;
+    grid-template-columns: 80px 80px 80px;
+    grid-template-rows: 35px 35px;
+    gap: 0.6rem;
+
+}
+
+.tips__button {
+    color: white;
+    background-color: $dark-cyan;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
+.bill__people {
+    input {
+        @include input();
+    }
+}
+
+//amount section
+
+.amount {
+    background-color: $dark-cyan;
+    color: white;
+    width: 50%;
+    height: 100%;
+    border-radius: 10px;
+    padding: 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    button {
+        background-color: $Strongcyan;
+        color: $dark-cyan;
+        border: none;
+        height: 35px;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: hsl(172, 80%, 62%);
+        }
+    }
+
+}
+
+.amount__tip,
+.amount__total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.amount__tip p:last-of-type,
+.amount__total p:last-of-type {
+    color: $Strongcyan;
+    font-size: 2rem;
+}
+
+.amount__tip p:first-of-type,
+.amount__total p:first-of-type {
+    font-size: 0.7rem;
+}
+
+.amount__total {
+    margin-bottom: 1.5rem;
+}
